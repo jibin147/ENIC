@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html>
+
+<!-- Mirrored from gambolthemes.net/workwise_demo/HTML/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 09 Apr 2019 15:28:30 GMT -->
+<head>
+	{% load static %}
+<meta charset="UTF-8">
+<title>WorkWise Html Template</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/animate.css' %}">
+<link rel="stylesheet" type="text/css" href="{%  static 'css/bootstrap.min.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/line-awesome.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/line-awesome-font-awesome.min.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/font-awesome.min.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/jquery.mCustomScrollbar.min.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'lib/slick/slick.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'lib/slick/slick-theme.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/responsive.css' %}">
+</head>
+
+
+<body>
+
+
+
+
+
+<style>
+table {
+table-align: center;
+  width:100%;
+  font-weight: bold;
+}
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 15px;
+  text-align: center;
+}
+table#t01 tr:nth-child(even) {
+  background-color: #D9F7FA;
+}
+table#t01 tr:nth-child(odd) {
+ background-color: #F2FBFC;
+}
+table#t01 th {
+  background-color:	#0E4FA4;
+  color: white;
+}
+</style>
+</head>
+
+<h2 align="center"></h2>
+
+<table id="t01" >
+    <!--<meta name="viewport" table="width=device-width, initial-scale=1">-->
+  <tr>
+    <th>Job id</th>
+    <th>From</th>
+	  <th>To</th>
+      <th>Job Description</th>
+          <th>Balance</th>
+      <th>Date</th>
+      <th> EXP Date</th>
+      <th> Notification</th>
+      <th>Cancel</th>
+
+
+
+  </tr>
+  <tbody>
+    {% for l in data %}
+    {% for i in data1 %}
+    {% if l.jobid == i.job_id %}
+    <tr>
+      <td>{{ l.jobid }}</td>
+    <td>{{ l.fromid }}</td>
+		<td>{{ l.toid }}</td>
+
+        <td>{{ i.description }}</td>
+
+       <td>{{ i.amount }}</td>
+        <td>{{ i.date }}</td>
+        <td>{{ l.end_date}}</td>
+      <td><a class="btn btn-primary btn-xl js-scroll-trigger" href = "{% url 'startjob' id=i.job_id %}" >Notification</a></td>
+        <td><a class="btn btn-primary btn-xl js-scroll-trigger" href = "{% url 'refund' id=i.job_id %}">Cancel</a></td>
+    </td>
+
+
+
+    </tr>
+    {% endif %}
+    {% endfor %}
+    {% endfor %}
+
+  </tbody>
+
+</table>
+
+
+
+
+
+
+<div class="cpy-right text-center">
+				<p>© 2019 ENIC All rights reserved | Design by
+					<a href="http://enic.com"> enic corp.</a>
+				</p>
+			</div>
+
+</body>
+
+</html>
